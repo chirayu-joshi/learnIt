@@ -17,12 +17,19 @@ export default class Navbar extends React.Component {
                     
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
-                            <li class="nav-item float-right">
-                                <a className="nav-link" href="#">Courses</a>
+                            <li className="nav-item float-right">
+                                <Link className={'nav-link'} to={'/courses'}>
+                                    Courses
+                                </Link>
                             </li>
                             <li className="nav-item float-right">
                                 <Link className={'nav-link'} to={'/settings'}>
                                     Go Live
+                                </Link>
+                            </li>
+                            <li className="nav-item float-right">
+                                <Link className={'nav-link'} to={'/upload-course'}>
+                                    Upload
                                 </Link>
                             </li>
                             {/* <li className="nav-item float-right">

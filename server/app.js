@@ -11,7 +11,9 @@ const express = require('express'),
   port = config.server.port,
   app = express(),
   node_media_server = require('./media_server'),
-  thumbnail_generator = require('./cron/thumbnails');
+  thumbnail_generator = require('./cron/thumbnails'),
+  multer = require('multer'),
+  cors = require('cors');
 
 mongoose.connect('mongodb://127.0.0.1/nodeStream' , { useNewUrlParser: true });
 
@@ -44,6 +46,28 @@ app.use('/register', require('./routes/register'));
 app.use('/settings', require('./routes/settings'));
 app.use('/streams', require('./routes/streams'));
 app.use('/user', require('./routes/user'));
+
+app.use(cors());
+
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'server/media')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' +file.originalname )
+  }
+})
+let upload = multer({ storage: storage }).single('file')
+app.post('/upload',function(req, res) {
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(500).json(err)
+    } else if (err) {
+      return res.status(500).json(err)
+    }
+    return res.status(200).send(req.file)
+  })
+});
 
 app.get('/logout', (req, res) => {
   req.logout();

@@ -3,8 +3,11 @@ import {Router, Route} from 'react-router-dom';
 
 import Navbar from './Navbar';
 import LiveStreams from './LiveStreams';
+import Courses from './Courses';
+import UploadCourse from './UploadCourse';
 import Settings from './Settings';
 import VideoPlayer from './VideoPlayer';
+
 const customHistory = require("history").createBrowserHistory();
 
 export default class Root extends React.Component {
@@ -20,15 +23,23 @@ export default class Root extends React.Component {
           <Navbar/>
           <Route exact path="/" render={props => (
             <LiveStreams  {...props} />
-          )}/>
+          )} />
+
+          <Route exact path="/courses" render={props => (
+            <Courses {...props} />
+          )} />
+
+          <Route exact path="/upload-course" render={props => (
+            <UploadCourse {...props} />
+          )} />
 
           <Route exact path="/stream/:username" render={props => (
             <VideoPlayer {...props} />
-          )}/>
+          )} />
 
           <Route exact path="/settings" render={props => (
             <Settings {...props} />
-          )}/>
+          )} />
         </div>
       </Router>
     )
