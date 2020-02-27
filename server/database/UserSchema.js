@@ -10,6 +10,8 @@ let UserSchema = new Schema({
     stream_key : String,
 });
 
+// generateHash will convert plain text into bcrypt hash
+// bcrypt uses blowfish encoding technique
 UserSchema.methods.generateHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

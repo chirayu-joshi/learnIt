@@ -1,3 +1,5 @@
+// All the configs like port no., RTMP configs, etc goes here.
+// We are using node-media-server along with ffmpeg to provide RTMP, HLS service.
 const config = {
     server: {
         secret: 'kjVkuti2xAyF3JGCzSZTk0YWM5JhI9mgQW4rytXc',

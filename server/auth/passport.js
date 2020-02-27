@@ -11,6 +11,7 @@ passport.deserializeUser( (obj, cb) => {
     cb(null, obj);
 });
 
+// Strategy to handle user registration
 passport.use('localRegister', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
@@ -44,6 +45,7 @@ passport.use('localRegister', new LocalStrategy({
         });
     }));
 
+// Strategy to handle user authentication
 passport.use('localLogin', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',

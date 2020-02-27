@@ -14,17 +14,20 @@ export default class Navbar extends React.Component {
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"/>
                     </button>
-
+                    
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
+                            <li class="nav-item float-right">
+                                <a className="nav-link" href="#">Courses</a>
+                            </li>
                             <li className="nav-item float-right">
                                 <Link className={'nav-link'} to={'/settings'}>
                                     Go Live
                                 </Link>
                             </li>
-                            <li className="nav-item float-right">
+                            {/* <li className="nav-item float-right">
                                 <a className="nav-link" target="_blank" href="https://github.com/chirayu-joshi">Github</a>
-                            </li>
+                            </li> */}
                             <li className="nav-item float-right">
                                 <a className="nav-link" href="/Logout">Logout</a>
                             </li>

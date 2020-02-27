@@ -18,6 +18,7 @@ export default class Navbar extends React.Component {
         this.getLiveStreams();
     }
 
+    // Receives API from 'http://127.0.0.1:8888/api/streams' in which number of live streams available are given.
     getLiveStreams() {
         axios.get('http://127.0.0.1:' + config.rtmp_server.http.port + '/api/streams')
             .then(res => {

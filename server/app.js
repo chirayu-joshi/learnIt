@@ -1,17 +1,17 @@
 const express = require('express'),
-    path = require('path'),
-    Session = require('express-session'),
-    bodyParse = require('body-parser'),
-    passport = require('./auth/passport'),
-    mongoose = require('mongoose'),
-    middleware = require('connect-ensure-login'),
-    FileStore = require('session-file-store')(Session),
-    config = require('./config/default'),
-    flash = require('connect-flash'),
-    port = config.server.port,
-    app = express(),
-    node_media_server = require('./media_server'),
-    thumbnail_generator = require('./cron/thumbnails');
+  path = require('path'),
+  Session = require('express-session'),
+  bodyParse = require('body-parser'),
+  passport = require('./auth/passport'),
+  mongoose = require('mongoose'),
+  middleware = require('connect-ensure-login'),
+  FileStore = require('session-file-store')(Session),
+  config = require('./config/default'),
+  flash = require('connect-flash'),
+  port = config.server.port,
+  app = express(),
+  node_media_server = require('./media_server'),
+  thumbnail_generator = require('./cron/thumbnails');
 
 mongoose.connect('mongodb://127.0.0.1/nodeStream' , { useNewUrlParser: true });
 
@@ -26,13 +26,13 @@ app.use(bodyParse.urlencoded({extended: true}));
 app.use(bodyParse.json({extended: true}));
 
 app.use(Session({
-    store: new FileStore({
-        path : 'server/sessions'
-    }),
-    secret: config.server.secret,
-    maxAge : Date().now + (60 * 1000 * 30),
-    resave : true,
-    saveUninitialized : false,
+  store: new FileStore({
+    path : 'server/sessions'
+  }),
+  secret: config.server.secret,
+  maxAge : Date().now + (60 * 1000 * 30),
+  resave : true,
+  saveUninitialized : false,
 }));
 
 app.use(passport.initialize());
@@ -46,12 +46,12 @@ app.use('/streams', require('./routes/streams'));
 app.use('/user', require('./routes/user'));
 
 app.get('/logout', (req, res) => {
-    req.logout();
-    return res.redirect('/login');
+  req.logout();
+  return res.redirect('/login');
 });
 
 app.get('*', middleware.ensureLoggedIn(), (req, res) => {
-    res.render('index');
+  res.render('index');
 });
 
 app.listen(port, () => console.log(`App listening on ${port}!`));
