@@ -37,7 +37,7 @@ $ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 ```
 $ npm init
 $ npm install axios bcrypt-nodejs body-parser bootstrap config connect-ensure-login connect-flash cookie-parser ejs express express-session mongoose passport passport-local request session-file-store supervisor shortid cron --save-dev
-$ npm install multer cors nodemon cli-table reactstrap react-toastify --save
+$ npm install multer cors nodemon cli-table reactstrap react-toastify fs --save
 ```
 
 #### Install libs for FrontEnd
