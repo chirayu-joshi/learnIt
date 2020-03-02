@@ -28,7 +28,10 @@ export default class VideoPlayer extends React.Component {
                     autoplay: false,
                     controls: true,
                     sources: [{
-                        src: 'http://127.0.0.1:' + config.rtmp_server.http.port + '/live/' + res.data.stream_key + '/index.m3u8',
+                        // I've used http://192.168.43.235:8888 to connect to my mobile app. 
+                        // You can find yours by command "ifconfig".
+                        // Or if you want to use it for local machine, use: http://127.0.0.1:8888.
+                        src: 'http://192.168.43.235:' + config.rtmp_server.http.port + '/live/' + res.data.stream_key + '/index.m3u8',
                         type: 'application/x-mpegURL'
                     }],
                     fluid: true,
