@@ -79,7 +79,7 @@ export default class Courses extends React.Component {
         <h4>Upload Course</h4>
         <hr className="my-4"/>
 
-        <form method="post" action="/" id="#" encType="multipart/form-data">
+        <form method="post" action="/upload" id="#" encType="multipart/form-data">
           <div className="form-group files">
             <label>Upload Your File</label>
             <input 
