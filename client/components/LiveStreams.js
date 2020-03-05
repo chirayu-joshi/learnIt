@@ -5,7 +5,7 @@ import './LiveStreams.scss';
 import config from '../../server/config/default';
 
 
-export default class Navbar extends React.Component {
+export default class LiveStreams extends React.Component {
 
     constructor(props) {
         super(props);
