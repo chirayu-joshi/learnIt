@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 app.use(express.static('public'));
 app.use('/thumbnails', express.static('server/thumbnails'));
+app.use('/courses', express.static('server/media/uploads'));
 app.use(flash());
 
 app.use(require('cookie-parser')());
@@ -39,15 +40,16 @@ app.use(Session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(cors());
+
 // Register app routes
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 app.use('/settings', require('./routes/settings'));
 app.use('/streams', require('./routes/streams'));
 app.use('/user', require('./routes/user'));
-
-app.use(cors());
-app.post('/upload', require('./upload/file-upload').uploadResponse);
+app.use('/upload', require('./routes/videoUpload'));
+app.use('/coursesAPI', require('./routes/courses'));
 
 app.get('/logout', (req, res) => {
   req.logout();

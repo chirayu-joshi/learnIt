@@ -79,15 +79,15 @@ export default class Courses extends React.Component {
         <h4>Upload Course</h4>
         <hr className="my-4"/>
 
-        <form method="post" action="/upload" id="#" encType="multipart/form-data">
+        <form method="post" name="videoUpload" action="/upload" id="#" encType="multipart/form-data">
           <div className="form-group files">
-            <label>Upload Your File</label>
+            <label>Upload Video Tutorial</label>
             <input 
               type="file" 
               name="file" 
               className="form-control"
               multiple="multiple"
-              accept=".pdf,.doc,.psd,.xd,.ai,.ae,.zip,.rar,video/*,image/*,text/*"
+              accept="video/*"
               onChange={this.fileChangeHandler.bind(this)} />
             <Progress max="100" color="success" value={this.state.loaded} className="mt-4 mb-1">
               {Math.round(this.state.loaded,2)}%
@@ -95,7 +95,7 @@ export default class Courses extends React.Component {
             <button 
               type="button" 
               className="btn btn-success btn-block" 
-              onClick={this.fileUploadHandler.bind(this)}>Upload File
+              onClick={this.fileUploadHandler.bind(this)}>Upload Video
             </button>
           </div>
         </form>

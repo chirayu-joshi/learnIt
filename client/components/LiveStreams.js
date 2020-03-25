@@ -24,7 +24,6 @@ export default class LiveStreams extends React.Component {
         axios.get('http://192.168.43.235:' + config.rtmp_server.http.port + '/api/streams')
             .then(res => {
                 let streams = res.data;
-                console.log(streams);
                 if (typeof (streams['live'] !== 'undefined')) {
                     this.getStreamsInfo(streams['live']);
                 }

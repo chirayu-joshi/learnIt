@@ -25,7 +25,7 @@ export default class Root extends React.Component {
             <LiveStreams  {...props} />
           )} />
 
-          <Route exact path="/courses" render={props => (
+          <Route exact path="/tutorials" render={props => (
             <Courses {...props} />
           )} />
 
