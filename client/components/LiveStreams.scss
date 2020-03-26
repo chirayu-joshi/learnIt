@@ -20,7 +20,7 @@
     .username {
 
       position: absolute;
-      bottom: 10px;
+      bottom: 5px;
       left: 20px;
       background-color: black;
 
@@ -30,6 +30,12 @@
         text-decoration: none;
         padding: 2px 8px;
       }
+    }
+
+    .video-title {
+      position: absolute;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
   }

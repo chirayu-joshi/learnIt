@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     cb(null, 'server/media/uploads/');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname );
+    cb(null, file.originalname.replace(/ /g, '_'));
   }
 });
 
@@ -27,8 +27,8 @@ router.post('/',
   upload.single('file'),
   (req, res, next) => {
     thumbnailGenerator.generateThumbnail(
-      'http://127.0.0.1:' + port + '/courses/' + encodeURIComponent(req.file.filename), 
-      req.file.filename,
+      'http://127.0.0.1:' + port + '/courses/' + req.file.filename.replace(/ /g, '_'), 
+      req.file.filename.replace(/ /g, '_'),
       req.user.username);
     res.status(200).json({
       message: 'Video upload successful'

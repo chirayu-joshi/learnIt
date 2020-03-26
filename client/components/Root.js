@@ -6,6 +6,7 @@ import LiveStreams from './LiveStreams';
 import Courses from './Courses';
 import UploadCourse from './UploadCourse';
 import Settings from './Settings';
+import LiveStreamPlayer from './LiveStreamPlayer';
 import VideoPlayer from './VideoPlayer';
 
 const customHistory = require("history").createBrowserHistory();
@@ -34,6 +35,10 @@ export default class Root extends React.Component {
           )} />
 
           <Route exact path="/stream/:username" render={props => (
+            <LiveStreamPlayer {...props} />
+          )} />
+
+          <Route exact path="/tutorial/:videoTitle" render={props => (
             <VideoPlayer {...props} />
           )} />
 
