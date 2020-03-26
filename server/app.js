@@ -12,10 +12,12 @@ const express = require('express'),
   app = express(),
   node_media_server = require('./media_server'),
   thumbnail_generator = require('./cron/thumbnails'),
-  cors = require('cors');
+  cors = require('cors'),
+  favicon = require('serve-favicon');
 
 mongoose.connect('mongodb://127.0.0.1/nodeStream' , { useNewUrlParser: true });
 
+app.use(favicon('public/icon.ico'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 app.use(express.static('public'));

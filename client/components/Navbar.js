@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 export default class Navbar extends React.Component {
     render() {
@@ -18,19 +18,24 @@ export default class Navbar extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item float-right">
-                                <Link className={'nav-link'} to={'/tutorials'}>
+                                <NavLink className={'nav-link'} to={'/'} exact>
+                                    Streams
+                                </NavLink>
+                            </li>
+                            <li className="nav-item float-right">
+                                <NavLink className={'nav-link'} to={'/tutorials'}>
                                     Courses
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item float-right">
-                                <Link className={'nav-link'} to={'/settings'}>
+                                <NavLink className={'nav-link'} to={'/settings'}>
                                     Go Live
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item float-right">
-                                <Link className={'nav-link'} to={'/upload-course'}>
+                                <NavLink className={'nav-link'} to={'/upload-course'}>
                                     Upload
-                                </Link>
+                                </NavLink>
                             </li>
                             {/* <li className="nav-item float-right">
                                 <a className="nav-link" target="_blank" href="https://github.com/chirayu-joshi">Github</a>

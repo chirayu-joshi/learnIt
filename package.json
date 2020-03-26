@@ -42,6 +42,7 @@
     "react-toastify": "^5.5.0",
     "reactstrap": "^8.4.1",
     "request": "^2.88.0",
+    "serve-favicon": "^2.5.0",
     "session-file-store": "^1.2.0",
     "shortid": "^2.2.14",
     "video.js": "^7.4.1"

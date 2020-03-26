@@ -3,7 +3,7 @@ const express = require('express'),
   multer = require('multer'),
   fs = require('fs');
 
-const thumbnailGenerator = require('../helpers/videoThumbnail')
+const thumbnailGenerator = require('../helpers/videoThumbnail'),
   port = require('../config/default').server.port;
 
 const storage = multer.diskStorage({

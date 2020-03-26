@@ -2,6 +2,7 @@ const { spawn, spawnSync } = require('child_process');
 const { createReadStream, createWriteStream } = require('fs');
 
 const VideoDetails = require('../database/VideoUploadSchema');
+const port = require('../config/default').server.port;
 
 const ffmpegPath = '/usr/bin/ffmpeg';
 const width = 256;

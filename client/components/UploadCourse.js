@@ -22,8 +22,8 @@ export default class Courses extends React.Component {
   */
   maxSelectFile(event) {
     let files = event.target.files;
-    if (files.length > 20) {
-      toast.error('Maximum 20 files are allowed per tutorial');
+    if (files.length > 1) {
+      toast.error('Maximum 1 file is allowed');
       event.target.value = null;
       return false;
     } else {
@@ -90,7 +90,7 @@ export default class Courses extends React.Component {
               accept="video/*"
               onChange={this.fileChangeHandler.bind(this)} />
             <Progress max="100" color="success" value={this.state.loaded} className="mt-4 mb-1">
-              {Math.round(this.state.loaded,2)}%
+              {isNaN(Math.round(this.state.loaded,2)) ? 0 : Math.round(this.state.loaded,2)}%
             </Progress>
             <button 
               type="button" 
