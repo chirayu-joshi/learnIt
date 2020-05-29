@@ -1,7 +1,6 @@
 /**
  * NodeMediaServer exposes API to list all connected clients.
  * You can access it in your browser at 'http://127.0.0.1:8888/api/streams'.
- * Later on we use this API in our frontend (React).
  */
 // You can accept/reject incoming connection if streaming key is invalid.
 // We are accepting incoming connection on default 1935 RTMP port.

@@ -13,3 +13,5 @@ server/sessions/*
 # ignore media but keep folder
 server/media/*
 !server/media/.gitkeep
+
+report

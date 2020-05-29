@@ -26,7 +26,8 @@ class VideoPlayer extends React.Component {
                 controls: true,
                 sources: [{
                   src: course.video_path
-                }]
+                }],
+                fluid: true
               }
             }, () => {
               this.player = videojs(this.videoNode, this.state.videoJsOptions, function onPlayerReady() {

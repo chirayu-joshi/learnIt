@@ -21,7 +21,7 @@ export default class LiveStreams extends React.Component {
     // Receives API from 'http://127.0.0.1:8888/api/streams' in which number of live streams available are given.
     // I've used http://192.168.43.235:8888 to connect to my mobile app. You can find yours by command "ifconfig".
     getLiveStreams() {
-        axios.get('http://192.168.43.235:' + config.rtmp_server.http.port + '/api/streams')
+        axios.get('http://127.0.0.1:' + config.rtmp_server.http.port + '/api/streams')
             .then(res => {
                 let streams = res.data;
                 if (typeof (streams['live'] !== 'undefined')) {
